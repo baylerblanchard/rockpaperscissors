@@ -4,7 +4,7 @@
     </head>
   <body>
     <script>
-      const aiAns = ['rock', 'paper', 'scissors']
+      let aiAns = ['rock', 'paper', 'scissors']
       let playerAns = prompt("Rock, Paper, or Scissors?");
       let aiRand = aiPick(aiAns);
 
@@ -36,6 +36,11 @@
 
       
       console.log(playRound(aiRand, playerAns));
+
+      aiAns = 0;
+      aiPick = 0;
+      playerAns = 0;
+      aiRand = 0;
     </script>
   </body>
 </html>

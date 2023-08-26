@@ -4,57 +4,21 @@
     </head>
   <body>
     <script>
-      let aiAns = ['rock', 'paper', 'scissors']
-      let aiRand = aiPick(aiAns);
+      let aiAns = ['rock', 'paper', 'scissors'];
+      let aiPick = aiAns[Math.floor(Math.random() * aiAns.length)];
       let playerAns;
 
-      function aiPick(string) {
-        let aiRand = Math.floor(Math.random() * aiAns.length);
-        return aiRand;
+      function getPlayerans(){
+        let playerAns = prompt("Rock, Paper, or Scissors?");
+        return playerAns;
       }
+      let playerPick = playerAns;
 
-      function playRound(aiRand, playerAns){
-        playerAns = prompt("Rock, Paper, or Scissors?");
+      getPlayerans();
 
-        if (aiAns[aiRand] === playerAns) {
-          console.log("It's a tie!");
-        } else if (aiAns[aiRand] === 'rock' && playerAns === 'paper') {
-          console.log("You win!");
-        } else if (aiAns[aiRand] === 'rock' && playerAns === 'scissors') {
-          console.log("You lose!");
-        } else if (aiAns[aiRand] === 'paper' && playerAns === 'rock') {
-          console.log("You lose!");
-        } else if (aiAns[aiRand] === 'paper' && playerAns === 'scissors') {
-          console.log("You win!");
-        } else if (aiAns[aiRand] === 'scissors' && playerAns === 'rock') {
-          console.log("You win!");
-        } else if (aiAns[aiRand] === 'scissors' && playerAns === 'paper') {
-          console.log("You lose!");
-        }
-      }
+      console.log(playerPick);
+      console.log(aiPick);
 
-      function playGame(aiRand, playerAns){
-        let playerWs = 0;
-        let aiWs = 0;
-
-        for(i = 0; i <5; i++){
-          playRound(aiRand, playerAns);
-          if (playRound(aiRand, playerAns) === "You win!") {
-            playerWs++;
-          } else if (playRound(aiRand, playerAns) === "You lose!") {
-            aiWs++;
-          }
-        }
-      }
-
-      playGame();
-
-      console.log(aiAns[aiRand]);
-
-      aiAns = 0;
-      aiPick = 0;
-      aiRand = 0;
-      playerAns = 0;
     </script>
   </body>
 </html>

@@ -13,7 +13,9 @@
         return aiRand;
       }
 
-      function playRound(aiRand){
+      function playRound(aiRand, playerAns){
+        playerAns = prompt("Rock, Paper, or Scissors?");
+
         if (aiAns[aiRand] === playerAns) {
           console.log("It's a tie!");
         } else if (aiAns[aiRand] === 'rock' && playerAns === 'paper') {
@@ -31,24 +33,18 @@
         }
       }
 
-      function playGame(aiRand){
+      function playGame(aiRand, playerAns){
         let playerWs = 0;
         let aiWs = 0;
 
-        if (playerWs || aiWs < 3){
-        let playerAns = prompt("Rock, Paper, or Scissors?");
+        for(i = 0; i <5; i++){
           playRound(aiRand, playerAns);
           if (playRound(aiRand, playerAns) === "You win!") {
             playerWs++;
           } else if (playRound(aiRand, playerAns) === "You lose!") {
             aiWs++;
           }
-        } else if (playerWs === 3) {
-          console.log("You win the game!");
-        } else if (aiWs === 3) {
-          console.log("You lose the game!");
         }
-
       }
 
       playGame();

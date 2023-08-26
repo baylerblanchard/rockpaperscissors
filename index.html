@@ -5,15 +5,15 @@
   <body>
     <script>
       let aiAns = ['rock', 'paper', 'scissors']
-      let playerAns = prompt("Rock, Paper, or Scissors?");
       let aiRand = aiPick(aiAns);
+      let playerAns;
 
       function aiPick(string) {
         let aiRand = Math.floor(Math.random() * aiAns.length);
         return aiRand;
       }
 
-      function playRound(aiRand, playerAns){
+      function playRound(aiRand){
         if (aiAns[aiRand] === playerAns) {
           console.log("It's a tie!");
         } else if (aiAns[aiRand] === 'rock' && playerAns === 'paper') {
@@ -31,28 +31,34 @@
         }
       }
 
-      function playGame{
+      function playGame(aiRand){
         let playerWs = 0;
         let aiWs = 0;
-        for (let i = 0; i < 5; i++) {
+
+        if (playerWs || aiWs < 3){
+        let playerAns = prompt("Rock, Paper, or Scissors?");
+          playRound(aiRand, playerAns);
           if (playRound(aiRand, playerAns) === "You win!") {
             playerWs++;
           } else if (playRound(aiRand, playerAns) === "You lose!") {
             aiWs++;
           }
+        } else if (playerWs === 3) {
+          console.log("You win the game!");
+        } else if (aiWs === 3) {
+          console.log("You lose the game!");
         }
+
       }
 
-      console.log(aiAns[aiRand]);
-      console.log(playerAns);
+      playGame();
 
-      
-      console.log(playRound(aiRand, playerAns));
+      console.log(aiAns[aiRand]);
 
       aiAns = 0;
       aiPick = 0;
-      playerAns = 0;
       aiRand = 0;
+      playerAns = 0;
     </script>
   </body>
 </html>

@@ -34,7 +34,13 @@
       function playGame{
         let playerWs = 0;
         let aiWs = 0;
-        
+        for (let i = 0; i < 5; i++) {
+          if (playRound(aiRand, playerAns) === "You win!") {
+            playerWs++;
+          } else if (playRound(aiRand, playerAns) === "You lose!") {
+            aiWs++;
+          }
+        }
       }
 
       console.log(aiAns[aiRand]);

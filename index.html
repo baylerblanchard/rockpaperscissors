@@ -5,12 +5,37 @@
   <body>
     <script>
       const aiAns = ['rock', 'paper', 'scissors']
-      function GFG_Fun() {
-      console.log(aiAns[(Math.floor(Math.random() * aiAns.length))]);
+      let playerAns = prompt("Rock, Paper, or Scissors?");
+      let aiRand = aiPick(aiAns);
+
+      function aiPick(string) {
+        let aiRand = Math.floor(Math.random() * aiAns.length);
+        return aiRand;
       }
 
-      console.log(GFG_Fun());
+      function playRound(aiRand, playerAns){
+        if (aiAns[aiRand] === playerAns) {
+          console.log("It's a tie!");
+        } else if (aiAns[aiRand] === 'rock' && playerAns === 'paper') {
+          console.log("You win!");
+        } else if (aiAns[aiRand] === 'rock' && playerAns === 'scissors') {
+          console.log("You lose!");
+        } else if (aiAns[aiRand] === 'paper' && playerAns === 'rock') {
+          console.log("You lose!");
+        } else if (aiAns[aiRand] === 'paper' && playerAns === 'scissors') {
+          console.log("You win!");
+        } else if (aiAns[aiRand] === 'scissors' && playerAns === 'rock') {
+          console.log("You win!");
+        } else if (aiAns[aiRand] === 'scissors' && playerAns === 'paper') {
+          console.log("You lose!");
+        }
+      }
 
+      console.log(aiAns[aiRand]);
+      console.log(playerAns);
+
+      
+      console.log(playRound(aiRand, playerAns));
     </script>
   </body>
 </html>

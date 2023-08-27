@@ -17,12 +17,21 @@
       function getAiAns(){
         return aiAns[Math.floor(Math.random() * aiAns.length)];
       }
+for(let i = 0; i < 5; i++){
+      if(playerScore || aiScore < 3){
+        playerAns = getPlayerAns();
+        aiPick = getAiAns();
+      } else {
+        console.log('Game Over');
+      }
 
-
-
-      playerAns = getPlayerAns();
-      aiPick = getAiAns();
-
+      if(playerScore === 3){
+        console.log('Player Wins');
+      } else if (aiScore === 3){
+        console.log('AI Wins');
+      } else {
+        console.log('Game Continues');
+      }
 
       if (playerAns === 'rock' && aiPick === 'scissors'){
         playerScore++;
@@ -45,6 +54,7 @@
 
       console.log('Player: ' + playerScore);
       console.log('AI: ' + aiScore);
+    }
 
     </script>
   </body>

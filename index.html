@@ -7,6 +7,8 @@
       let aiAns = ['rock', 'paper', 'scissors'];
       let aiPick;
       let playerAns;
+      let playerScore = 0;
+      let aiScore = 0;
 
       function getPlayerAns(){
         return prompt('Rock, Paper, or Scissors?');
@@ -16,11 +18,33 @@
         return aiAns[Math.floor(Math.random() * aiAns.length)];
       }
 
+
+
       playerAns = getPlayerAns();
       aiPick = getAiAns();
 
-      console.log(playerAns);
-      console.log(aiPick);
+
+      if (playerAns === 'rock' && aiPick === 'scissors'){
+        playerScore++;
+      } else if (playerAns === 'rock' && aiPick === 'paper'){
+        aiScore++;
+      } else if (playerAns === 'paper' && aiPick === 'rock'){
+        playerScore++;
+      } else if (playerAns === 'paper' && aiPick === 'scissors'){
+        aiScore++;
+      } else if (playerAns === 'scissors' && aiPick === 'paper'){
+        playerScore++;
+      } else if (playerAns === 'scissors' && aiPick === 'rock'){
+        aiScore++;
+      } else {
+        console.log('Tie');
+      }
+
+      console.log('Player picked: ' + playerAns);
+      console.log('AI picked: ' + aiPick);
+
+      console.log('Player: ' + playerScore);
+      console.log('AI: ' + aiScore);
 
     </script>
   </body>

@@ -8,15 +8,13 @@
       let aiPick = aiAns[Math.floor(Math.random() * aiAns.length)];
       let playerAns;
 
-      function getPlayerans(){
-        let playerAns = prompt("Rock, Paper, or Scissors?");
-        return playerAns;
+      function getPlayerAns(){
+        return prompt('Rock, Paper, or Scissors?');
       }
-      let playerPick = playerAns;
 
-      getPlayerans();
+      playerAns = getPlayerAns();
 
-      console.log(playerPick);
+      console.log(playerAns);
       console.log(aiPick);
 
     </script>

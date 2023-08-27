@@ -5,14 +5,19 @@
   <body>
     <script>
       let aiAns = ['rock', 'paper', 'scissors'];
-      let aiPick = aiAns[Math.floor(Math.random() * aiAns.length)];
+      let aiPick;
       let playerAns;
 
       function getPlayerAns(){
         return prompt('Rock, Paper, or Scissors?');
       }
 
+      function getAiAns(){
+        return aiAns[Math.floor(Math.random() * aiAns.length)];
+      }
+
       playerAns = getPlayerAns();
+      aiPick = getAiAns();
 
       console.log(playerAns);
       console.log(aiPick);

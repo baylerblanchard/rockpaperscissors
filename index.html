@@ -18,8 +18,9 @@
       function getAiAns(){
         return aiAns[Math.floor(Math.random() * aiAns.length)];
       }
-      
+
       do{
+        console.log('===== New Game =====');
         playerScore = 0;
         aiScore = 0;
         do{
@@ -27,16 +28,22 @@
           aiPick = getAiAns();
           if (playerAns === 'rock' && aiPick === 'scissors'){
           playerScore++;
+          console.log('Player Won The Round!')
           } else if (playerAns === 'rock' && aiPick === 'paper'){
             aiScore++;
+            console.log('Ai Won The Round!')
           } else if (playerAns === 'paper' && aiPick === 'rock'){
             playerScore++;
+            console.log('Player Won The Round!')
           } else if (playerAns === 'paper' && aiPick === 'scissors'){
             aiScore++;
+            console.log('Ai Won The Round!')
           } else if (playerAns === 'scissors' && aiPick === 'paper'){
             playerScore++;
+            console.log('Player Won The Round!')
           } else if (playerAns === 'scissors' && aiPick === 'rock'){
             aiScore++;
+            console.log('Ai Won The Round!')
           } else {
             console.log('Tie');
           }

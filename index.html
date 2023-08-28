@@ -17,44 +17,31 @@
       function getAiAns(){
         return aiAns[Math.floor(Math.random() * aiAns.length)];
       }
-for(let i = 0; i < 5; i++){
-      if(playerScore || aiScore < 3){
+
+      do{
         playerAns = getPlayerAns();
         aiPick = getAiAns();
-      } else {
-        console.log('Game Over');
-      }
+        if (playerAns === 'rock' && aiPick === 'scissors'){
+          playerScore++;
+        } else if (playerAns === 'rock' && aiPick === 'paper'){
+          aiScore++;
+        } else if (playerAns === 'paper' && aiPick === 'rock'){
+          playerScore++;
+        } else if (playerAns === 'paper' && aiPick === 'scissors'){
+          aiScore++;
+        } else if (playerAns === 'scissors' && aiPick === 'paper'){
+          playerScore++;
+        } else if (playerAns === 'scissors' && aiPick === 'rock'){
+          aiScore++;
+        } else {
+          console.log('Tie');
+        }
+        console.log('Player picked: ' + playerAns);
+        console.log('AI picked: ' + aiPick);
 
-      if(playerScore === 3){
-        console.log('Player Wins');
-      } else if (aiScore === 3){
-        console.log('AI Wins');
-      } else {
-        console.log('Game Continues');
-      }
-
-      if (playerAns === 'rock' && aiPick === 'scissors'){
-        playerScore++;
-      } else if (playerAns === 'rock' && aiPick === 'paper'){
-        aiScore++;
-      } else if (playerAns === 'paper' && aiPick === 'rock'){
-        playerScore++;
-      } else if (playerAns === 'paper' && aiPick === 'scissors'){
-        aiScore++;
-      } else if (playerAns === 'scissors' && aiPick === 'paper'){
-        playerScore++;
-      } else if (playerAns === 'scissors' && aiPick === 'rock'){
-        aiScore++;
-      } else {
-        console.log('Tie');
-      }
-
-      console.log('Player picked: ' + playerAns);
-      console.log('AI picked: ' + aiPick);
-
-      console.log('Player: ' + playerScore);
-      console.log('AI: ' + aiScore);
-    }
+        console.log('Player: ' + playerScore);
+        console.log('AI: ' + aiScore);
+      } while (playerScore < 3 && aiScore < 3);
 
     </script>
   </body>

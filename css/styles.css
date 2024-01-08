@@ -1,11 +1,15 @@
 button{
+    background-color: #4CAF50;
+    color: white;
+    width: 100px;
     margin: 15px;
-    display: flex;
-    justify-content: center;
 }
 
 .button-container{
-    width: 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
     display: flex;
-    align-content: center;
+    flex-direction: column;
 }

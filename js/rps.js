@@ -2,6 +2,15 @@
 // Path: js/rps.js
 let gameRound = 0;
 let isRoundInProgress = false;
+let aiAns = ['rock', 'paper', 'scissors'];
+let aiPick;
+let playerAns;
+let playerScore;
+let aiScore;
+let playAgain = true;
+let playerSelection;
+let computerSelection;
+
 
 // Function to handle the button click for each option
 function handleClick(option) {
@@ -9,7 +18,10 @@ function handleClick(option) {
     isRoundInProgress = true;
 
     // Your logic for handling the option selected
-    console.log(`Selected option: ${option}`);
+    playerSelection = option;
+    console.log('Player picked: ' + playerSelection);
+    computerSelection = aiAns[Math.floor(Math.random() * aiAns.length)];
+    console.log('AI picked: ' + computerSelection);
     // Add your game logic here
 
     // Simulate delay for game logic (replace this with actual game logic)
@@ -51,3 +63,44 @@ document.getElementById('scissors').addEventListener('click', function() {
     document.getElementById('scissors').disabled = true; // Disable button after click
     handleClick('scissors');
 });
+
+function getAiAns(){
+    return aiAns[Math.floor(Math.random() * aiAns.length)];
+  }
+
+function playRound(playerSelection, computerSelection) {
+      do{
+        console.log('===== New Game =====');
+        do{
+          //playerAns = getPlayerAns();
+          aiPick = getAiAns();
+          if (playerAns === 'rock' && aiPick === 'scissors'){
+          playerScore++;
+          console.log('Player Won The Round!')
+          } else if (playerAns === 'rock' && aiPick === 'paper'){
+            aiScore++;
+            console.log('Ai Won The Round!')
+          } else if (playerAns === 'paper' && aiPick === 'rock'){
+            playerScore++;
+            console.log('Player Won The Round!')
+          } else if (playerAns === 'paper' && aiPick === 'scissors'){
+            aiScore++;
+            console.log('Ai Won The Round!')
+          } else if (playerAns === 'scissors' && aiPick === 'paper'){
+            playerScore++;
+            console.log('Player Won The Round!')
+          } else if (playerAns === 'scissors' && aiPick === 'rock'){
+            aiScore++;
+            console.log('Ai Won The Round!')
+          } else {
+            console.log('Tie');
+          }
+            console.log('Player picked: ' + playerAns);
+            console.log('AI picked: ' + aiPick);
+
+            console.log('Player: ' + playerScore);
+            console.log('AI: ' + aiScore);
+          } while (playerScore < 3 && aiScore < 3);
+          playAgain = confirm('Play again?');
+        } while (playAgain === true);
+    }

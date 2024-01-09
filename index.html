@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Rock Paper Scissors</title>
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="/css/styles.css">
     </head>
   <body>
     <div class="button-container">
@@ -23,7 +23,7 @@
       function getPlayerAns(){
         return prompt('Rock, Paper, or Scissors?');
       }
-*/
+
       function getAiAns(){
         return aiAns[Math.floor(Math.random() * aiAns.length)];
       }
@@ -33,7 +33,7 @@
         playerScore = 0;
         aiScore = 0;
         do{
-          playerAns = getPlayerAns();
+          //playerAns = getPlayerAns();
           aiPick = getAiAns();
           if (playerAns === 'rock' && aiPick === 'scissors'){
           playerScore++;
@@ -65,6 +65,9 @@
           playAgain = confirm('Play again?');
         } while (playAgain === true);
 
+        */
     </script>
+    
+    <script src="js/rps.js"></script>
   </body>
 </html>

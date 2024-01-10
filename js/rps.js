@@ -19,9 +19,7 @@ function handleClick(option) {
 
     // Your logic for handling the option selected
     playerSelection = option;
-    console.log('Player picked: ' + playerSelection);
     computerSelection = aiAns[Math.floor(Math.random() * aiAns.length)];
-    console.log('AI picked: ' + computerSelection);
     displayResults(playerSelection, computerSelection);
     // Add your game logic here
     //playRound(playerSelection, computerSelection);
@@ -110,6 +108,4 @@ function getAiAns(){
     function displayResults(playerAns, aiAns){
         var results = document.getElementById('result');
         results.innerHTML = 'Player picked: ' + playerAns + '<br>' + 'AI picked: ' + aiAns;
-        console.log('Player picked: ' + playerAns);
-        console.log('AI picked: ' + aiAns);
     }

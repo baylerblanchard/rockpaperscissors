@@ -109,3 +109,8 @@ function getAiAns(){
         var results = document.getElementById('result');
         results.innerHTML = 'Player picked: ' + playerAns + '<br>' + 'AI picked: ' + aiAns;
     }
+
+    function displayScore(playerScore, aiScore){
+        var score = document.getElementById('score');
+        score.innerHTML = 'Player: ' + playerScore + '<br>' + 'AI: ' + aiScore;
+    }

@@ -14,7 +14,7 @@ button{
     flex-direction: column;
 }
 
-.result{
+#result{
     position: absolute;
     top: 60%;
     left: 45%;

@@ -22,6 +22,7 @@ function handleClick(option) {
     console.log('Player picked: ' + playerSelection);
     computerSelection = aiAns[Math.floor(Math.random() * aiAns.length)];
     console.log('AI picked: ' + computerSelection);
+    displayResults(playerSelection, computerSelection);
     // Add your game logic here
     //playRound(playerSelection, computerSelection);
 
@@ -69,7 +70,7 @@ function getAiAns(){
     return aiAns[Math.floor(Math.random() * aiAns.length)];
   }
 
-function playRound(playerSelection, computerSelection) {
+/*function playRound(playerSelection, computerSelection) {
       do{
         console.log('===== New Game =====');
         do{
@@ -104,4 +105,11 @@ function playRound(playerSelection, computerSelection) {
           } while (playerScore < 3 && aiScore < 3);
           playAgain = confirm('Play again?');
         } while (playAgain === true);
+    }*/
+
+    function displayResults(playerAns, aiAns){
+        var results = document.getElementById('result');
+        results.innerHTML = 'Player picked: ' + playerAns + '<br>' + 'AI picked: ' + aiAns;
+        console.log('Player picked: ' + playerAns);
+        console.log('AI picked: ' + aiAns);
     }

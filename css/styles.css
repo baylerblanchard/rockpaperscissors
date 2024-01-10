@@ -13,3 +13,11 @@ button{
     display: flex;
     flex-direction: column;
 }
+
+.result{
+    position: absolute;
+    top: 60%;
+    left: 45%;
+    font-size: 20px;
+    font: 1em sans-serif;
+}

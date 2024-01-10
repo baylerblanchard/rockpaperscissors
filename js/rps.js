@@ -23,7 +23,8 @@ function handleClick(option) {
     computerSelection = aiAns[Math.floor(Math.random() * aiAns.length)];
     console.log('AI picked: ' + computerSelection);
     // Add your game logic here
-
+    playRound(playerSelection, computerSelection);
+    
     // Simulate delay for game logic (replace this with actual game logic)
     setTimeout(() => {
         // Increment the game round

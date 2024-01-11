@@ -21,8 +21,9 @@ function handleClick(option) {
     playerSelection = option;
     computerSelection = aiAns[Math.floor(Math.random() * aiAns.length)];
     displayResults(playerSelection, computerSelection);
+
     // Add your game logic here
-    //playRound(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
 
     // Simulate delay for game logic (replace this with actual game logic)
     setTimeout(() => {
@@ -68,49 +69,54 @@ function getAiAns(){
     return aiAns[Math.floor(Math.random() * aiAns.length)];
   }
 
-/*function playRound(playerSelection, computerSelection) {
-      do{
-        console.log('===== New Game =====');
-        do{
-          //playerAns = getPlayerAns();
-          aiPick = getAiAns();
-          if (playerAns === 'rock' && aiPick === 'scissors'){
-          playerScore++;
-          console.log('Player Won The Round!')
-          } else if (playerAns === 'rock' && aiPick === 'paper'){
-            aiScore++;
-            console.log('Ai Won The Round!')
-          } else if (playerAns === 'paper' && aiPick === 'rock'){
-            playerScore++;
-            console.log('Player Won The Round!')
-          } else if (playerAns === 'paper' && aiPick === 'scissors'){
-            aiScore++;
-            console.log('Ai Won The Round!')
-          } else if (playerAns === 'scissors' && aiPick === 'paper'){
-            playerScore++;
-            console.log('Player Won The Round!')
-          } else if (playerAns === 'scissors' && aiPick === 'rock'){
-            aiScore++;
-            console.log('Ai Won The Round!')
-          } else {
-            console.log('Tie');
-          }
-            console.log('Player picked: ' + playerAns);
-            console.log('AI picked: ' + aiPick);
+function playRound(playerSelection, computerSelection) {
+    var playerScore = 0;
+    var aiScore = 0;
+    var score = document.getElementById('score');
 
-            console.log('Player: ' + playerScore);
-            console.log('AI: ' + aiScore);
-          } while (playerScore < 3 && aiScore < 3);
-          playAgain = confirm('Play again?');
-        } while (playAgain === true);
-    }*/
+    do{
+        if (playerSelection === computerSelection) {
+            score.innerHTML = 'It\'s a tie!';
+            } else if (playerSelection === 'rock') {
+            if (computerSelection === 'paper') {
+            aiScore++;
+            displayScore(playerScore, aiScore);
+            } else {
+            playerScore++;
+            displayScore(playerScore, aiScore);
+            }
+            } else if (playerSelection === 'paper') {
+        if (computerSelection === 'scissors') {
+            aiScore++;
+            displayScore(playerScore, aiScore);
+            } else {
+            playerScore++;
+            displayScore(playerScore, aiScore);
+            }
+            } else if (playerSelection === 'scissors') {
+            if (computerSelection === 'rock') {
+            aiScore++;
+            displayScore(playerScore, aiScore);
+            } else {
+            playerScore++;
+            displayScore(playerScore, aiScore);
+            }
+            }
+    } while (playerScore < 5 && aiScore < 5);
+    
+        if (playerScore === 5) {
+            score.innerHTML = 'Player wins!';
+        } else if (aiScore === 5) {
+            score.innerHTML = 'AI wins!';
+        }
+}
 
-    function displayResults(playerAns, aiAns){
+function displayResults(playerAns, aiAns){
         var results = document.getElementById('result');
         results.innerHTML = 'Player picked: ' + playerAns + '<br>' + 'AI picked: ' + aiAns;
-    }
+}
 
-    function displayScore(playerScore, aiScore){
+function displayScore(playerScore, aiScore){
         var score = document.getElementById('score');
         score.innerHTML = 'Player: ' + playerScore + '<br>' + 'AI: ' + aiScore;
-    }
+}

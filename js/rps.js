@@ -5,11 +5,12 @@ let isRoundInProgress = false;
 let aiAns = ['rock', 'paper', 'scissors'];
 let aiPick;
 let playerAns;
-let playerScore;
-let aiScore;
+let playerScore = 0;
+let aiScore = 0;
 let playAgain = true;
 let playerSelection;
 let computerSelection;
+let score = document.getElementById('score');
 
 
 // Function to handle the button click for each option
@@ -24,6 +25,22 @@ function handleClick(option) {
 
     // Add your game logic here
     playRound(playerSelection, computerSelection);
+    displayResults(playerSelection, computerSelection);
+    if (playerSelection === computerSelection) {
+        score.innerHTML = 'This round is a Draw!';
+        } else {
+            displayScore(playerScore, aiScore);
+        }
+
+    if (playerScore === 5){
+        score.innerHTML = 'Player wins!';
+        playerScore = 0;
+        aiScore = 0;
+    } else if (aiScore === 5){
+        score.innerHTML = 'AI wins!';
+        playerScore = 0;
+        aiScore = 0;
+    }
 
     // Simulate delay for game logic (replace this with actual game logic)
     setTimeout(() => {
@@ -70,47 +87,30 @@ function getAiAns(){
   }
 
 function playRound(playerSelection, computerSelection) {
-    var playerScore = 0;
-    var aiScore = 0;
     var score = document.getElementById('score');
 
-    do{
         if (playerSelection === computerSelection) {
             score.innerHTML = 'It\'s a tie!';
             } else if (playerSelection === 'rock') {
             if (computerSelection === 'paper') {
             aiScore++;
-            displayScore(playerScore, aiScore);
             } else {
             playerScore++;
-            displayScore(playerScore, aiScore);
             }
             } else if (playerSelection === 'paper') {
-        if (computerSelection === 'scissors') {
+            if (computerSelection === 'scissors') {
             aiScore++;
-            displayScore(playerScore, aiScore);
             } else {
             playerScore++;
-            displayScore(playerScore, aiScore);
             }
             } else if (playerSelection === 'scissors') {
             if (computerSelection === 'rock') {
             aiScore++;
-            displayScore(playerScore, aiScore);
             } else {
             playerScore++;
-            displayScore(playerScore, aiScore);
             }
             }
-    } while (playerScore < 5 && aiScore < 5);
-    
-        if (playerScore === 5) {
-            score.innerHTML = 'Player wins!';
-        } else if (aiScore === 5) {
-            score.innerHTML = 'AI wins!';
         }
-}
-
 function displayResults(playerAns, aiAns){
         var results = document.getElementById('result');
         results.innerHTML = 'Player picked: ' + playerAns + '<br>' + 'AI picked: ' + aiAns;

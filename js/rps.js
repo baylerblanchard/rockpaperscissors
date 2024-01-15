@@ -33,7 +33,7 @@ function handleClick(option) {
         }
 
     if (playerScore === 5){
-        score.innerHTML = 'Player wins!';
+        score.innerHTML = 'You win!';
         playerScore = 0;
         aiScore = 0;
     } else if (aiScore === 5){
@@ -113,10 +113,10 @@ function playRound(playerSelection, computerSelection) {
         }
 function displayResults(playerAns, aiAns){
         var results = document.getElementById('result');
-        results.innerHTML = 'Player picked: ' + playerAns + '<br>' + 'AI picked: ' + aiAns;
+        results.innerHTML = 'You picked: ' + playerAns + '<br>' + 'AI picked: ' + aiAns;
 }
 
 function displayScore(playerScore, aiScore){
         var score = document.getElementById('score');
-        score.innerHTML = 'Player: ' + playerScore + '<br>' + 'AI: ' + aiScore;
+        score.innerHTML = 'You: ' + playerScore + '<br>' + 'AI: ' + aiScore;
 }
